@@ -2,17 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
-      <a href="main.php"><h1>This is test_wep</h1></a>
+      <h1><a href="main.php">This is test_web</a></h1>
     </header>
     <nav>
-      
+      <?php
+        echo 'First item';
+      ?>
     </nav>
-    <div class="">
-      <input type="button" name="" value="Sign In" onclick="">
-      <input type="button" name="" value="Join" onclick="">
+    <div>
+      <butt>
+        <a href="signIn.php">Sign In</a>
+        <a href="join.php">Join</a>
+      </butt>
     </div>
   </body>
 </html>
