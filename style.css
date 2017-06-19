@@ -1,0 +1,24 @@
+<style media="screen">
+  body{
+    margin: 0;
+  }
+  header{
+    border-bottom: 1px solid grey;
+    padding-left: 30px;
+  }
+  nav{
+    border-right: 1px solid grey;
+    width: 200px;
+    height: 700px;
+    float: left;
+  }
+  div butt{
+    padding-right: 20px;
+    float: right;
+  }
+  div article{
+    padding-left: 20px;
+    float: left;
+    width: 400px;
+  }
+</style>
