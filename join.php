@@ -23,10 +23,14 @@
           <p>
             <label for="id">[ID] :</label>
             <input id="id" type="text" name="id">
-          </p>
-          <p>
             <label for="password">[PASSWORD] :</label>
             <input id="password" type="text" name="password">
+          </p>
+          <p>
+            <label for="name">[NAME] :</label>
+            <input id="name" type="text" name="name">
+            <label for="age">[AGE] :</label>
+            <input id="age" type="number" name="age">
           </p>
           <p>
             <label for="intro">[Self-Introduction]</label>

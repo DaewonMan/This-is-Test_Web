@@ -23,8 +23,6 @@
           <p>
             <label for="id">[ID] :</label>
             <input id="id" type="text" name="id">
-          </p>
-          <p>
             <label for="password">[PASSWORD] :</label>
             <input id="password" type="text" name="password">
           </p>
