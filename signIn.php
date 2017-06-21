@@ -19,7 +19,7 @@
         <a href="join.php">Join</a>
       </butt>
       <article>
-        <form class="" action="indoor.php" method="post"> <?php //사용자가 입력한 정보를 서버쪽으로 전송할 때 쓰는 입력양식 ?>
+        <form class="" action="log_check.php" method="post"> <?php //사용자가 입력한 정보를 서버쪽으로 전송할 때 쓰는 입력양식 ?>
           <p>
             <label for="id">[ID] :</label>
             <input id="id" type="text" name="id">
