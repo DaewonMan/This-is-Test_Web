@@ -1,3 +1,6 @@
+<?php
+  $conn = mysqli_connect('localhost', 'root', '1187614g', 'indoor', '3307'); //db 접속
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,25 +10,69 @@
   <body>
     <header>
       <?php
-        $conn = mysqli_connect('localhost', 'root', '1187614g', 'indoor', '3307'); //db 접속
         $id = mysqli_real_escape_string($conn, $_GET['id']); //외부로부터 들어오는 정보를 보안적으로 세탁하여 검색
         $sql = "SELECT name FROM `topic` WHERE `id` = '{$id}'"; //유저의 이름을 알아내는 sql문
         $result = mysqli_query($conn, $sql); //sql의 결과를 할당
+
         $row = mysqli_fetch_assoc($result); //sql의 결과를 배열의 형태로 변환 후 할당
         echo '<h1><a href="loging.php?id='.$_GET['id'].'">The World of '.$row['name'].'</a></h1>';
       ?>
     </header>
     <nav>
-      <?php
-        echo 'First item';
-      ?>
+      <ol>
+        <?php
+          $id = mysqli_real_escape_string($conn, $_GET['id']);
+          $sql = "SELECT * FROM `diary` WHERE `id` = '{$id}'";
+          $result = mysqli_query($conn, $sql); //topic 테이블에 모든 쿼리를 가져온다
+
+          while($row = mysqli_fetch_assoc($result)) //sql문의 결과를 배열의 형태로 가져와서 한 행을 row에 담는다
+          {
+            echo '<li><a href="loging.php?id='.$row['id'].'&list='.$row['list'].'">'.htmlspecialchars($row['title']).'</a></li>';
+          }
+        ?>
+      </ol>
     </nav>
     <div>
       <butt>
         <a href="main.php">Sign Out</a>
       </butt>
       <article>
+        <?php
+          $id = mysqli_real_escape_string($conn, $_GET['id']);
+          //$sql = "SELECT * FROM `diary` WHERE `id` = '{$id}'";
+          //$result = mysqli_query($conn, $sql); //topic 테이블에 모든 쿼리를 가져온다
 
+          if(empty($_GET['list']))
+          {
+            echo '<form class="" action="posting.php?id='.$id.'" method="post">
+              <p>
+                <label for="date">[Date] :</label>
+                <input id="date" type="date" name="date">
+              </p>
+              <p>
+                <label for="title">[Title] :</label>
+                <input id="title" type="text" name="title">
+              </p>
+              <p>
+                <label for="story">[Story]</label>
+                <textarea id="story" name="story" rows="8" cols="80"></textarea>
+              </p>
+              <p>
+                <input type="submit" value="Post up">
+              </p>
+            </form>';
+          }
+          else
+          {
+            $list = mysqli_real_escape_string($conn, $_GET['list']);
+            $sql = "SELECT * FROM `diary` WHERE `id` = '{$id}' AND `list` = '{$list}'";
+            $result = mysqli_query($conn, $sql);
+
+            echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
+            echo '<div>'.htmlspecialchars($row['date']).'</div>';
+            echo "<div>".htmlspecialchars($row['story'])."</div>";
+          }
+        ?>
       </article>
     </div>
   </body>

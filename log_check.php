@@ -7,7 +7,7 @@
 
   if($result->num_rows > 0) //일치하는 회원이 있다면
   {
-    header("Location: loging.php?id=$id"); //log in 한다
+    header("Location: loging.php?id=".$id); //log in 한다
   }
   else
   {
