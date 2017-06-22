@@ -1,5 +1,5 @@
 <?php
-  $conn = mysqli_connect('localhost', 'root', '1187614g', 'indoor', '3307'); //db 접속
+  require_once('dbconn.php'); //db 접속
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,8 +39,6 @@
       <article>
         <?php
           $id = mysqli_real_escape_string($conn, $_GET['id']);
-          //$sql = "SELECT * FROM `diary` WHERE `id` = '{$id}'";
-          //$result = mysqli_query($conn, $sql); //topic 테이블에 모든 쿼리를 가져온다
 
           if(empty($_GET['list']))
           {
@@ -67,6 +65,7 @@
             $list = mysqli_real_escape_string($conn, $_GET['list']);
             $sql = "SELECT * FROM `diary` WHERE `id` = '{$id}' AND `list` = '{$list}'";
             $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
 
             echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
             echo '<div>'.htmlspecialchars($row['date']).'</div>';

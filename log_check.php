@@ -1,5 +1,5 @@
 <?php
-  $conn = mysqli_connect('localhost', 'root', '1187614g', 'indoor', '3307'); //db 접속
+  require_once('dbconn.php'); //db 접속
   $id = mysqli_real_escape_string($conn, $_POST['id']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
   $sql = "SELECT * FROM topic WHERE id = '{$id}' AND password = '{$password}'"; //id와 password가 일치하는지 알아내는 sql

@@ -1,5 +1,5 @@
 <?php
-  $conn = mysqli_connect('localhost', 'root', '1187614g', 'indoor', '3307'); //db 접속
+  require_once('dbconn.php'); //db 접속
   $id = $_GET['id'];
   $title = mysqli_real_escape_string($conn, $_POST['title']);
   $date = mysqli_real_escape_string($conn, $_POST['date']);
