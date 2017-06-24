@@ -21,23 +21,23 @@
       <article>
         <?php
           $id = "";
-          $password = "";
-          $name = "";
-          $age = "";
-          $intro = "";
 
           if(!empty($_GET['event']) && $_GET['event'] == "overlap") // id 중복시 중복하다는 메세지 출력
           {
             //echo '<script type="text/javascript">alert("overlap")</script>';
-            echo "<script>alert('Overlap')</script>";
+            echo "<script>alert('Overlap!!!')</script>";
           }
           else if(!empty($_GET['event']) && $_GET['event'] == "unique") // id가 유일할 때 유일하다는 메세지 출력
           {
-            echo "<script>alert('Unique')</script>";
+            echo "<script>alert('Unique!!!')</script>";
           }
           else if(!empty($_GET['event']) && $_GET['event'] == "lack") // 기입사항을 하나라도 입력 안 했을 시
           {
-            echo "<script>alert('Please fill in all things')</script>";
+            echo "<script>alert('Please fill in all things.')</script>";
+          }
+          else if(!empty($_GET['event']) && $_GET['event'] == "checkoverlap") // 아이디 중복 검사를 안했을 시
+          {
+            echo "<script>alert('Please check overlap of id.')</script>";
           }
 
           if(!empty($_GET['id'])) // id가 중복확인이 되었다면
