@@ -19,12 +19,46 @@
         <a href="join.php">Join</a>
       </butt>
       <article>
-        <form class="" action="indoor.php" method="post"> <?php //사용자가 입력한 정보를 서버쪽으로 전송할 때 쓰는 입력양식 ?>
+        <?php
+          $id = "";
+          $password = "";
+          $name = "";
+          $age = "";
+          $intro = "";
+
+          if(!empty($_GET['event']) && $_GET['event'] == "overlap") // id 중복시 중복하다는 메세지 출력
+          {
+            //echo '<script type="text/javascript">alert("overlap")</script>';
+            echo "<script>alert('Overlap')</script>";
+          }
+          else if(!empty($_GET['event']) && $_GET['event'] == "unique") // id가 유일할 때 유일하다는 메세지 출력
+          {
+            echo "<script>alert('Unique')</script>";
+          }
+          else if(!empty($_GET['event']) && $_GET['event'] == "lack") // 기입사항을 하나라도 입력 안 했을 시
+          {
+            echo "<script>alert('Please fill in all things')</script>";
+          }
+
+          if(!empty($_GET['id'])) // id가 중복확인이 되었다면
+            $id = $_GET['id'];
+
+        ?>
+        <form class="" action="id_check.php" method="post">
           <p>
             <label for="id">[ID] :</label>
-            <input id="id" type="text" name="id">
+            <?php echo '<input id="id" type="text" name="id" value="'.$id.'">'; ?>
+            <input type="submit" name="confirm" value="confirm">
+            <?php //<button type="button" onclick="">confirm</button> ?>
+            <?php //<input type="button" value="confirm repetition"> ?>
+          </p>
+        </form>
+        <?php
+          echo '<form class="" action="indoor.php?id='.$id.'" method="post">';
+        ?>
+          <p>
             <label for="password">[PASSWORD] :</label>
-            <input id="password" type="text" name="password">
+            <input id="password" type="password" name="password">
           </p>
           <p>
             <label for="name">[NAME] :</label>
