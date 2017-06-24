@@ -18,6 +18,13 @@
         <a href="signIn.php">Sign In</a>
         <a href="join.php">Join</a>
       </butt>
+      <article>
+        <?php
+          if(!empty($_GET['event'])){
+            echo "<h1>".$_GET['event']."</h1>";
+          }
+        ?>
+      </article>
     </div>
   </body>
 </html>

@@ -11,6 +11,7 @@
   }
   else
   {
-    header("Location: logfailing.php"); //log in 실패
+    //header("Location: logfailing.php"); //log in 실패
+    header("Location: signIn.php?event=logfail");
   }
 ?>

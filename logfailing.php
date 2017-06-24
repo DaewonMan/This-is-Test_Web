@@ -1,3 +1,9 @@
+<?php
+/*필요없는 파일
+log_check.php에서 event를 signIn.php에 보내줘서 로그인 실패시 메세지창 출력
+그러므로 이 소스코드는 불필요
+*/
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,7 +26,7 @@
       </butt>
       <article>
         <?php
-          echo 'We can not find your information!!!';
+          echo '<h1>We can not find your information!!!</h1>';
         ?>
       </article>
     </div>
