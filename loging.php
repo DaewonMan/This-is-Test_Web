@@ -70,8 +70,14 @@
             echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
             echo '<div>'.htmlspecialchars($row['date']).'</div>';
             echo "<div>".htmlspecialchars($row['story'])."</div>";
+
+            echo '<form action="posting.php?id='.$id.'&list='.$list.'&event=del" method="post"> //delete 버튼을 누르면 db에 저장된 posting 내용을 삭제한다.
+                  <p></p>
+                  <input type="submit" value="Delete">
+                  </form>';
           }
-        ?>
+          ?>
+
       </article>
     </div>
   </body>
